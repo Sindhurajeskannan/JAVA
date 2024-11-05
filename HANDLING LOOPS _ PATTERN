@@ -1,0 +1,54 @@
+INPUT : 
+
+Enter number of hai to print in a line :
+4
+Enter number of hai lines :
+3
+Enter number of blocks :
+2
+
+OUTPUT :
+
+Hai Hai Hai Hai 
+Hai Hai Hai Hai 
+Hai Hai Hai Hai 
+Total no of hai in blocks so far :12
+
+Hai Hai Hai Hai 
+Hai Hai Hai Hai 
+Hai Hai Hai Hai 
+Total no of hai in blocks so far :24
+
+SUM FROM 1 TO 24 : 300
+
+CODE :
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of hai to print in a line :");
+        int c = sc.nextInt();
+        System.out.println("Enter number of hai lines :");
+        int r = sc.nextInt();
+        System.out.println("Enter number of blocks :");
+        int b = sc.nextInt();
+        int count = 0;
+        int sum = 0;
+        for(int z = 0;z<b;z++){
+        for(int i = 0;i<r;i++){
+            for(int j = 0;j<c;j++){
+                count++;
+                System.out.print("Hai"+" ");
+            }
+            System.out.println();
+        }
+        System.out.println("Total no of hai in blocks so far :"+count);
+        System.out.println();
+        }
+        for(int w=0;w<=count;w++){
+            sum+=w;
+        }
+        System.out.println(sum);
+    }
+}
