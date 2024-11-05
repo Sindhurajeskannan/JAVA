@@ -1,0 +1,30 @@
+import java.util.*;
+class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter String to check if (palindrome) : ");
+        String s = sc.nextLine();
+        if(ispalindrome(s)){
+            System.out.println("Palindrome");
+        }
+        else{
+            System.out.println("Not palindrome");
+        }
+    }
+    public static boolean ispalindrome (String s){
+        int[] charcount = new int[26];
+        for(char c : s.toCharArray()){
+            if(Character.isLetter(c)){
+                Character.toLowerCase(c);
+                charcount[c-'a']++;
+            }
+        }
+        int oddcount = 0;
+        for (int i : charcount){
+            if(i%2!=0){
+                oddcount++;
+            }
+        }
+        return oddcount<=1;
+    }
+}
