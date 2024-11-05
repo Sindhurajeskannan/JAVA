@@ -30,3 +30,19 @@ public class Main
 	    return min1*min2>max1*max2?min1*min2:max1*max1;
 	}
 }
+
+(OR)
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int[] arr = {2,4,5,-10,8,3,6};
+		System.out.print("Maximum product :"+master(arr));
+	}
+	public static int master(int[] arr){
+	    int n = arr.length;
+	    Arrays.sort(arr);
+	    return Math.max(arr[n-2]*arr[n-1],arr[0]*arr[1]);
+	}
+}
