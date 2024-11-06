@@ -1,0 +1,23 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] a = {0,1,0,3,2,3};
+        System.out.println("The length is of longest increasing subsequence : "+lis(a));
+    }
+    public static int lis(int[] a){
+        int maximum = 1;
+        int[] b = new int[a.length];
+        for(int i = 0;i<b.length;i++){
+            b[i]=1;
+        }
+        for(int i = 1;i<a.length;i++){
+            for(int j=0;j<a.length;j++){
+                if(a[j]<a[i]){
+                    b[i]=Math.max(b[i],b[j]+1);
+                }
+            }
+            maximum = Math.max(maximum,b[i]);
+        }
+        return maximum;
+    }
+}
