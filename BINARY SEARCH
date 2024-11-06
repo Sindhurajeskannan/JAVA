@@ -1,0 +1,30 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] a = {1,2,5,6,7,8,9,23,45,67};
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter key element: ");
+        int key = sc.nextInt();
+        int start = 0;
+        int end = a.length-1;
+        int index = BinarySearch(a,start,end,key);
+        System.out.println("Index of target : "+index);
+       
+    }
+    public static int BinarySearch(int[] a,int start,int end,int key){
+        int mid;
+        while(start<=end){
+            mid = start+(end-start)/2;
+            if(a[mid]==key){
+                return mid;
+            }
+            else if(key<a[mid]){
+                end = mid-1;
+            }
+            else if(key>a[mid]){
+                start = mid+1;
+            }
+        }
+        return -1;
+    }
+}
