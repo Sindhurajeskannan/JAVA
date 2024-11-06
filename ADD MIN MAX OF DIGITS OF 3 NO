@@ -1,0 +1,33 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the input 1: ");
+        int i1 = sc.nextInt();
+        System.out.print("Enter the input 2: ");
+        int i2 = sc.nextInt();
+        System.out.print("Enter the input 3: ");
+        int i3 = sc.nextInt();
+        System.out.println("The key is : "+calculate(i1,i2,i3));
+    }
+    public static int calculate(int i1,int i2,int i3){
+        ArrayList<Integer> ip1 = extractdigits(i1);
+        ArrayList<Integer> ip2 = extractdigits(i2);
+        ArrayList<Integer> ip3 = extractdigits(i3);
+        
+        int a = Collections.max(ip1)+Collections.max(ip2)+Collections.max(ip3);
+        int b = Collections.min(ip1)+Collections.min(ip2)+Collections.min(ip3);
+        return a+b;
+    }
+    public static ArrayList<Integer> extractdigits(int i){
+        ArrayList<Integer> a = new ArrayList<>();
+        int temp;
+        while(i!=0){
+            temp = i%10;
+            a.add(temp);
+            i/=10;
+        }
+        return a;
+    } 
+}
+
