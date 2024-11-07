@@ -1,0 +1,91 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random r  = new Random();
+        
+        System.out.print("Enter team1 name: ");
+        String team1 = sc.nextLine();
+        System.out.print("Enter team1 name: ");
+        String team2 = sc.nextLine();
+        
+        int ans1 = r.nextInt(300)+1;
+        int ans2 = r.nextInt(300)+1;
+        
+        String[] hint1 = new String[3];
+        String[] hint2 = new String[3];
+        
+        // Hint for team1 :
+        
+        hint1[0] = ans1>150 ? "It is greater than 150":"It is lesser than 150";
+        hint1[1] = ans1%2==0 ? "It is even number":"It is odd number";
+        hint1[2] = ans1%5==0 ? "It is divisible by 5":"It is not divisible by 5";
+        
+        //Hint for team2: 
+        
+        hint2[0] = ans2>150 ? "It is greater than 150":"It is lesser than 150";
+        hint2[1] = ans2%2==0 ? "It is even number":"It is odd number";
+        hint2[2] = ans2%5==0 ? "It is divisible by 5":"It is not divisible by 5";
+        
+        System.out.println(team1 +" "+ "turn !"); 
+        String choice;
+        int count1 = 0;
+        
+        for(int i=0;i<3;i++){
+            System.out.print("Do you want any hint ? ");
+            choice = sc.nextLine();
+            if(choice.equalsIgnoreCase("y")){
+                System.out.println("The hint is :"+hint1[i]);
+                count1++;
+            }
+            else{
+                break;
+            }
+        }
+        System.out.print("Now, predict the answer !");
+        int guess1 = sc.nextInt();
+        sc.nextLine();
+        System.out.println("---------------------------"); 
+        
+        System.out.println(team2 + "turn !"); 
+        
+        String choice1;
+        int count2 = 0;
+        
+        for(int i=0;i<3;i++){
+            System.out.print("Do you want any hint ? ");
+            choice1 = sc.nextLine();
+            if(choice1.equalsIgnoreCase("y")){
+                System.out.println("The hint is :"+hint2[i]);
+                count2++;
+            }
+            else{
+                break;
+            }
+        }
+        System.out.print("Now, predict the answer !");
+        int guess2 = sc.nextInt();
+        System.out.println("---------------------------"); 
+        
+        int s1 = guess1 - (count1*25);
+        s1 = s1 - Math.abs(ans1-guess1);
+        int s2 = guess1 - (count2*25);
+        s2 = s2 - Math.abs(ans2-guess2);
+        
+        System.out.println(team1 + "answer is"+ ans1);
+        System.out.println(team2 + "answer is"+ ans2);
+        System.out.println(team1 + "score is"+ s1);
+        System.out.println(team2 + "score is"+ s2);
+        
+        if(s1>s2){
+             System.out.println(team1 + "wins");
+        }
+        else if(s1<s2){
+             System.out.println(team2 + "wins");
+        }
+        else{
+            
+             System.out.println("Tie");
+        }
+    }
+}
