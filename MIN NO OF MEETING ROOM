@@ -1,0 +1,43 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       System.out.print("Enter no of meeting is going to take place : ") ;
+       int n = sc.nextInt();
+       int[][] meeting_interval = new int[n][2];
+       for(int i = 0;i<n;i++){
+           System.out.println("For the meeting no "+ (i+1));
+           System.out.print("Enter start and end interval : ") ;
+           for(int j = 0;j<2;j++){
+               meeting_interval[i][j] = sc.nextInt();
+           }
+       }
+       int room = roomrequired(meeting_interval);
+       System.out.println("Rooms needed :"+" "+room);
+    }
+    public static int roomrequired(int[][] a){
+        int[] start = new int[a.length];
+        int[] end = new int[a.length];
+        
+        for(int i = 0;i<a.length;i++){
+            start[i]=a[i][0];
+            end[i]=a[i][1];
+        }
+        
+        Arrays.sort(start);
+        Arrays.sort(end);
+        
+        int j = 0;
+        int room = 0;
+        
+        for(int i : start){
+            if(i < end[j]){
+                room++;
+            }
+            else{
+                j++;
+            }
+        }
+        return room;
+    } 
+}
