@@ -1,5 +1,5 @@
 import java.util.*;
-class HelloWorld {
+class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] a = {2,3,4,7,8,9};
