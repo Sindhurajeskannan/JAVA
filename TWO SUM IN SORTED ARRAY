@@ -1,0 +1,30 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] a = {2,3,4,7,8,9};
+        System.out.print("Enter the target :");
+        int n = sc.nextInt();
+        int[] ans = targetindex(a,n);
+        for(int i = 0;i<ans.length;i++){
+            System.out.print(ans[i]+ " ");
+        }
+    }
+    public static int[] targetindex(int[] a,int n){
+        int s = 0;
+        int e = a.length-1;
+        while(s<e){
+            if(a[s]+a[e]==n){
+                return new int[]{s,e};
+            }
+            else if(a[s]+a[e]<n){
+                s++;
+            }
+            else {
+                e++;
+            }
+        }
+        return new int[]{};
+    } 
+}
+
