@@ -1,0 +1,81 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        llist l = new llist();
+        
+        l.insert(90);
+        l.insert(80);
+        l.insert(70); 
+        l.insert(60);
+        l.display();
+        System.out.println();
+        l.insertatpos(45,2);
+        System.out.println();
+        l.display();
+        l.delete(3);
+        System.out.println();
+        l.display();
+        
+    }
+}
+class llist{
+    Node node;
+    Node head = null;
+    class Node{
+        int data;
+        Node next;
+        Node(int val){
+            data = val;
+            next = null;
+        }
+    }
+    public void insert(int val){
+        Node newnode = new Node(val);
+        if(head==null){
+            head = newnode;
+        }
+        else{
+            newnode.next=head;
+            head = newnode;
+        }
+    }
+    public void display(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp = temp.next;
+        }
+    }
+    public void insertatpos(int val,int pos){
+        Node temp = head;
+        if(pos==0){
+            insert(val);
+        }
+        else{
+            Node newnode = new Node(val);
+            for(int i = 1 ;i<pos;i++){
+                if(temp.next==null){
+                    System.out.println("Position exceeded");
+                    return;
+                }
+                temp = temp.next;
+            }
+            newnode.next = temp.next;
+            temp.next = newnode;
+            
+        }
+    }
+    public void delete(int pos){
+        Node temp = head;
+        if(head!=null){
+            for(int i = 1;i<pos;i++){
+                temp=temp.next;
+            }
+            temp.next = temp.next.next;
+        }
+        else{
+            System.out.println("LList is empty");
+            return;
+        }
+    }
+}
