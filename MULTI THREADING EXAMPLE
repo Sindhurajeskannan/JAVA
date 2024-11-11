@@ -1,0 +1,35 @@
+import java.util.*;
+public class main extends Thread{
+	public void run() {
+		String[] boys = {"Adam","Bob","Charles","David","Edward"};
+		for(String i : boys) {
+			System.out.println(i);
+			
+			
+		try {
+			Thread.sleep(2000);
+		}
+		catch(InterruptedException e) {
+			System.out.println("interrupted");
+		}
+		}
+		
+	}
+	public static void main(String[] args) {
+		main x = new main();
+		x.start();
+		String[] girls = {"Amara","Blakley","Cathy","Daisy","Elena"};
+		for(String i : girls) {
+			System.out.println(i);
+			System.out.println();
+		
+		try {
+			Thread.sleep(2000);
+		}
+		catch(InterruptedException e) {
+			System.out.println("interrupted");
+		}
+		}
+	}
+}
+
