@@ -1,0 +1,62 @@
+import java.util.*;
+class Main{
+        public static int calculation(String str){
+        Stack<Integer> operand = new Stack<>();
+        Stack<Character> operator = new Stack<>();
+        int i = 0;
+        while(i<str.length()){
+            if(Character.isDigit(str.charAt(i))){
+                int a = 0;
+                while(i<str.length() && Character.isDigit(str.charAt(i))){
+                    a=a*10+(str.charAt(i)-'0');
+                    i++;
+                }
+                operand.push(a);
+            }
+            else if(str.charAt(i)=='+' || str.charAt(i)=='-' || str.charAt(i)=='*'||str.charAt(i)=='/'){
+                while(!operator.isEmpty() && precedence(operator.peek()) >= precedence(str.charAt(i))){
+                    char op = operator.pop();
+                    int num2 = operand.pop();
+                    int num1 = operand.pop();
+                    operand.push(operation(op,num1,num2));
+                }
+                operator.push(str.charAt(i));
+                i++;
+            }
+            else{
+                i++;
+            }
+        }
+            while(!operator.isEmpty()){
+                    char op = operator.pop();
+                    int num2 = operand.pop();
+                    int num1 = operand.pop();
+                    operand.push(operation(op,num1,num2));
+            }
+            return operand.pop();
+        }
+        public static int precedence(char c){
+            switch(c){
+                case '+':
+                case '-': return 1;
+                case '*':
+                case '/': return 2;
+            }
+            return -1;
+        }
+        public static int operation(char op,int num1,int num2){
+            switch(op){
+                case '+': return num1+num2;
+                case '-': return num1-num2;
+                case '*': return num1*num2;
+                case '/': return num1/num2;
+            }
+            return 0;
+        }
+        public static void main(String[] args){
+        String str="17+8-9/2+3*3";
+        System.out.println("Result is : "+" "+calculation(str));
+    }
+}
+
+
