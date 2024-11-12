@@ -1,0 +1,12 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Set<Character> st=new LinkedHashSet<>();
+        String str="zzzyyadhhhhzzz";
+        for(char c:str.toCharArray()){
+            System.out.println(c);
+            st.add(c);
+        } 
+        System.out.println(st);
+    }
+}
