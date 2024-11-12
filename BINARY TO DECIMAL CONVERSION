@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	       Scanner sc = new Scanner(System.in);
+	       System.out.print("Enter binary no to convert to decimal :");
+	       String s = sc.nextLine();
+	       int n = s.length();
+	       int ans = 0;
+	       int p = 0;
+	       for(int i = n-1;i>=0;i--){
+	           if(s.charAt(i)=='0'){
+	               ans+=0;
+	           }
+	           else if(s.charAt(i)=='1'){
+	               ans+=Math.pow(2,p);
+	           }
+	           p++;
+	       }
+	       System.out.println("Decimal val of"+": "+ans);
+	}
+}
+
