@@ -1,0 +1,42 @@
+Qn: To find round no :
+        take integer replace by sum of square of digits until you reach 1
+        or until you get the same no that have already arrived while replacing
+        if you reach 1 : it is round no
+        if not i.e., if the same no replaced have arrived then it is not a round number
+
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number to find round number: ");
+        int n = sc.nextInt();
+        if(isround(n)){
+        System.out.println("It is a round number");
+        }
+        else{
+            System.out.println("It is not a round number");
+        }
+    }
+    public static boolean isround(int n){
+        Set<Integer> s = new HashSet<>();
+        while(n!=1 && !s.contains(n)){
+            s.add(n);
+            n = sumofdigits(n);
+        }
+        System.out.println(s);
+        return n==1;
+    }
+    public static int sumofdigits(int n){
+        int ans = 0;
+        int r;
+        while(n>0){
+           r = n%10;
+           ans+=(r*r);
+           n/=10;
+        }
+        return ans;
+    }
+    
+}
