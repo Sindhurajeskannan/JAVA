@@ -50,16 +50,16 @@ class Tree{
     }
     public void in(Node root){
         if(root!=null){
-            pre(root.left);
+            in(root.left);
             System.out.print(root.data+" ");
-            pre(root.right);
+            in(root.right);
         }
         
     }
     public void post(Node root){
         if(root!=null){
-            pre(root.left);
-            pre(root.right);
+            post(root.left);
+            post(root.right);
             System.out.print(root.data+" ");
         }
         
