@@ -1,0 +1,13 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String s = "I LOVE INDIA";
+        String[] sarray = s.split(" ");
+        String reverse ="";
+        int n = sarray.length;
+        for(int i = n-1;i>=0;i--){
+            reverse+=" "+sarray[i];
+        }
+        System.out.println(reverse);
+    }
+}
